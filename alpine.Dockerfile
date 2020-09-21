@@ -31,8 +31,6 @@ ENV POSTGRES_DB="**None**" \
 
 COPY backup.sh /backup.sh
 
-VOLUME /backups
-
 ENTRYPOINT ["/bin/sh", "-c"]
 CMD ["exec /usr/local/bin/go-cron -s \"$SCHEDULE\" -p \"$HEALTHCHECK_PORT\" -- /backup.sh"]
 
