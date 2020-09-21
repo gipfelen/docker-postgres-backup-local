@@ -12,7 +12,7 @@ Supports the following Docker architectures: `linux/amd64`, `linux/arm64`, `linu
 Docker:
 
 ```sh
-docker run -u postgres:postgres -e POSTGRES_HOST=postgres -e POSTGRES_DB=dbname -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password  prodrigestivill/postgres-backup-local
+docker run -u postgres:postgres -e POSTGRES_HOST=postgres -e POSTGRES_DB=dbname -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password  gipfelen/docker-postgres-backup-local:latest
 ```
 
 Docker Compose:
@@ -29,7 +29,7 @@ services:
             - POSTGRES_PASSWORD=password
          #  - POSTGRES_PASSWORD_FILE=/run/secrets/db_password <-- alternative for POSTGRES_PASSWORD (to use with docker secrets)
     pgbackups:
-        image: prodrigestivill/postgres-backup-local
+        image: gipfelen/docker-postgres-backup-local:latest
         restart: always
         user: postgres:postgres
         volumes:
